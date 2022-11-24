@@ -1,0 +1,31 @@
+.section { 
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.parallax::after {
+    position: absolute;
+    background-size: 100%;
+    z-index: -1;
+}
+
+.static {
+    background: black;
+    width: 100%;
+}
+
+.bg1 {
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url('https://placekitten.com/g/900/700');
+}
+  
+.bg2 {
+    background-attachment: fixed;
+    background-size: cover;
+    background-image: url('https://placekitten.com/g/800/600');
+}

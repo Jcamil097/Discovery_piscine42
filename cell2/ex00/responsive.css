@@ -1,0 +1,23 @@
+html{
+    height: 100%;
+}
+
+body{
+    width: 100%; 
+    height: 100%;
+}
+
+.tablestyle{
+    width: 100%; 
+    height: 100%;
+}
+
+.firscell{
+    width: 50%; 
+    background-color: green;
+}
+
+.secondcell{
+    width: 50%; 
+    background-color: lightcoral;
+}

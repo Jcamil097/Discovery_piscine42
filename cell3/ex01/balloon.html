@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ex01</title>
+	<style>
+		#balloon {
+			border: 1px snow solid;
+		}
+	</style>
+	<script>
+		let size = 200;
+		const colors = ['#e53935', '#315e26', '#2565ae'];
+		let tamaño = 0;
+        //para ejecutar una función de JavaScript tan pronto como una página haya cargado
+		window.onload = () => {
+            //guardo el id del div en una variable
+			const ball = document.getElementById('balloon');
+			setCircleSize(size, tamaño);
+            //es un escuchador indica al navegador que este atento a la interacción del usuario
+			ball.addEventListener('click', () => setCircleSize(size + 10, ++tamaño));
+			ball.addEventListener('mouseleave', () => setCircleSize(size - 5, --tamaño));
+		}
+		function setCircleSize(newSize, ntamaño) {
+			const ball = document.getElementById('balloon');
+			style = ball.style;
+			size = newSize > 420 || newSize < 200 ? 200 : newSize;
+			tamaño = (ntamaño < 0) ? colors.length - 1 : (ntamaño > colors.length - 1) ? 0 : ntamaño;
+			style.width = size + 'px';
+			style.height = size + 'px';
+			style.borderRadius = size + 'px';
+			style.backgroundColor = colors[tamaño];
+		}
+	</script>
+</head>
+<body>
+	<div id="balloon"></div>
+</body>
+</html>

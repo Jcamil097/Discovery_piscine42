@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<title>ex01bis</title>
+	<script>
+		let size = 200;
+		const INC = 10;
+		const DSC = 5;
+		const colors = ['#e53935', '#315e26', '#2565ae'];
+		let increase = 0;
+		$(document).ready(() => {
+			setCircle(size, --increase);
+			$('#balloon').click(() => setCircle(size + INC, ++increase))
+			$('#balloon').mouseleave(() => setCircle(size - DSC, --increase))
+		});
+		function setCircle(newSize, newIndex) {
+			size = newSize > 420 || newSize < 200 ? 200 : newSize;
+			increase = newIndex < 0 ? colors.length - 1 :  newIndex > colors.length - 1 ? 0 : newIndex;
+			$('#balloon').innerHeight(size);
+			$('#balloon').innerWidth(size);
+			$('#balloon').css('border-radius', size);
+			$('#balloon').css('background-color', colors[increase]);
+		}
+	</script>
+</head>
+<body>
+	<div id="balloon"></div>
+</body>
+</html>
